@@ -29,7 +29,6 @@ class StartPage extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <h1>Capital Cities Quiz</h1>
