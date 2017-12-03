@@ -11,24 +11,45 @@ class QuestionPage extends Component {
   constructor(props) {
     super(props);
     this.handleAnswerSelection = this.handleAnswerSelection.bind(this);
-    this.state = {selectionMade: false};
+    this.state = { selectionMade: false };
   }
   handleAnswerSelection(index) {
-    if (index === this.props.categories.quizApp.currentRoundAnswer) {
-      this.setState({correct: true, selectionMade: true})
-    } else {
-      this.setState({correct: false, selectionMade: true})
-    }
+    this.setState({ selectionMade: true, answerIndex: index });
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
-        <h2>Which country is {this.props.categories.quizApp.currentRoundQuestions[this.props.categories.quizApp.currentRoundAnswer][0][0]} in?</h2>
+        <h2>Current Score: {this.props.categories.quizApp.userScore}/10</h2>
+        <h2>
+          Which country is{" "}
+          {
+            this.props.categories.quizApp.currentRoundQuestions[
+              this.props.categories.quizApp.currentRoundAnswer
+            ][0][0]
+          }{" "}
+          in?
+        </h2>
         <h3>Select the answer from the list below:</h3>
-      {this.props.categories.quizApp.currentRoundQuestions.map((item, index)=><h4 onClick={()=>this.handleAnswerSelection(index)} key={index}>{item[0][1]}</h4>)}
-      {this.state.selectionMade && <button>Next Round</button>}
+        {this.props.categories.quizApp.currentRoundQuestions.map(
+          (item, index) => (
+            <h4
+              onClick={() => this.handleAnswerSelection(index)}
+              key={index}
+              className={
+                this.state.selectionMade &&
+                index === this.state.answerIndex && index === this.props.categories.quizApp.currentRoundAnswer ? "green-bg" : this.state.selectionMade && index === this.state.answerIndex && index !== this.props.categories.quizApp.currentRoundAnswer ? "red-bg" : ""
+              }
+            >
+              {item[0][1]}
+            </h4>
+          )
+        )}
+        {this.state.selectionMade && this.props.categories.quizApp.currentRoundAnswer === this.state.answerIndex && <h3>That's Correct!</h3>}
+        {this.state.selectionMade && this.props.categories.quizApp.currentRoundAnswer !== this.state.answerIndex && <h3>Incorrect! The correct answer was {this.props.categories.quizApp.currentRoundQuestions[
+              this.props.categories.quizApp.currentRoundAnswer
+            ][0][1]}</h3>}
+        {this.state.selectionMade && <button>Next Round</button>}
       </div>
     );
   }
