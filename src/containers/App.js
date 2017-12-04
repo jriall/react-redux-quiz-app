@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     if (this.props.categories.quizApp.currentRound === 0) {
            return <StartPage />
-        } else if (this.props.categories.quizApp.currentRound === 11) {
+        } else if (this.props.categories.quizApp.currentRound === 10) {
            return <CompletedPage />
         } else {
            return <QuestionPage />
