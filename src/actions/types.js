@@ -1,2 +1,3 @@
 export const START_QUIZ = "start_quiz";
-export const ANSWER_QUESTION = "answe_question";
+export const NEW_ROUND = "new_round";
+export const ANSWER_QUESTION = "answer_question";
