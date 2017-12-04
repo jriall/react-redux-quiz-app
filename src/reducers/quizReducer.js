@@ -17,6 +17,11 @@ function quizReducer(state = testData, action) {
         let question = newQuiz.unusedQuestions.splice(randomNumber, 1);
         newQuiz.currentRoundQuestions.push(question);
       }
+      if (action.payload === "countries") {
+        newQuiz.questionsAndAnswersReversed = true;
+      } else {
+        newQuiz.questionsAndAnswersReversed = false;
+      }
       newQuiz.currentRoundAnswer = getRandomNumber(0, 3);
       newQuiz.currentRound++;
       return newQuiz;

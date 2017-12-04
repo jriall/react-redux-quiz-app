@@ -26,8 +26,8 @@ class StartPage extends Component {
     this.handleStartQuiz = this.handleStartQuiz.bind(this);
   }
 
-  handleStartQuiz() {
-    this.props.startQuiz();
+  handleStartQuiz(type) {
+    this.props.startQuiz(type);
   }
 
   render() {
@@ -37,8 +37,9 @@ class StartPage extends Component {
         <h2>
           Test your knowledge of capital cities with this interactive quiz!
         </h2>
-        <img src={cityImage} alt="city" />
-        <button onClick={this.handleStartQuiz} className="start-button">START QUIZ</button>
+        <img src={cityImage} alt="city" className="cover-image"/>
+        <button onClick={()=>this.handleStartQuiz("countries")} className="start-button">GUESS THE COUNTRIES!</button>
+        <button onClick={()=>this.handleStartQuiz("cities")} className="start-button">GUESS THE CITIES!</button>
       </div>
     );
   }

@@ -3,8 +3,8 @@ body {
   background-color: #F19B2C;
   text-align: center;
   color: white;
-  padding-left: 30%;
-  padding-right: 30%;
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 h1 {
@@ -33,10 +33,6 @@ h4:hover {
 }
 
 button {
-  font-size: 30px;
-  padding: 20px 30px 20px 30px;
-  border-radius: 40px;
-  border: 4px solid white;
   background-color: #F19B2C;
   color: white;
   cursor: pointer;
@@ -48,8 +44,27 @@ button:hover {
   background-color: #F1AE4C;
 }
 
-.start-button {
+.start-button, .reset-button {
   margin-top: 10vh;
+  font-size: 24px;
+  padding: 20px 30px 20px 30px;
+  border-radius: 50px;
+  border: 4px solid white;
+}
+
+.start-button {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 400px;
+  margin-bottom: 50px;
+}
+
+.next-round-button {
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 20px;
+  border: 2px solid white;
 }
 
 .red-bg {
@@ -70,4 +85,34 @@ button:hover {
 
 .no-hover:hover {
   background-color: #F19B2C;
+}
+
+.google-map-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.progress-bar-container {
+  width: 50%;
+  height: 20px;
+  margin: 0 auto;
+  background-color: #F19B2C;
+  -moz-box-shadow:    inset 0 0 20px #a56d31;
+   -webkit-box-shadow: inset 0 0 20px #a56d31;
+   box-shadow:         inset 0 0 20px #a56d31;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  background-color: #2eb476;
+  -moz-box-shadow:    inset 0 0 20px #27895c;
+   -webkit-box-shadow: inset 0 0 20px #27895c;
+   box-shadow:         inset 0 0 20px #27895c;
+  height: 20px;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.cover-image {
+  width: 70%;
 }

@@ -2,10 +2,10 @@ import { START_QUIZ } from "./types";
 import { NEW_ROUND } from "./types";
 import { ANSWER_QUESTION } from "./types";
 
-export function startQuiz() {
+export function startQuiz(data) {
   return {
     type: START_QUIZ,
-    payload: 1,
+    payload: data,
   }
 }
 
