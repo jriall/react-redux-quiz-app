@@ -89,7 +89,7 @@ class QuestionPage extends Component {
           }
           the capital of?`:`What is the capital city of ${this.props.categories.quizApp.currentRoundQuestions[
               this.props.categories.quizApp.currentRoundAnswer
-            ][0][1]}`}
+            ][0][1]}?`}
         </h2>
         <h3>Select the answer from the list below:</h3>
         {this.props.categories.quizApp.currentRoundQuestions.map(
@@ -122,7 +122,9 @@ class QuestionPage extends Component {
           this.props.categories.quizApp.currentRoundAnswer !==
             this.state.answerIndex && (
               <h3>
-                {`Incorrect! The correct answer was ${this.props.categories.quizApp.currentRoundQuestions[
+                {`Incorrect! The correct answer was ${this.props.categories.quizApp.questionsAndAnswersReversed?this.props.categories.quizApp.currentRoundQuestions[
+                  this.props.categories.quizApp.currentRoundAnswer
+                ][0][1]:this.props.categories.quizApp.currentRoundQuestions[
                   this.props.categories.quizApp.currentRoundAnswer
                 ][0][0]}`}
               </h3>

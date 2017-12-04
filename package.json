@@ -1,5 +1,6 @@
 {
   "name": "new-quiz-app",
+  "homepage": "https://jamesriall.co.uk/react-redux-quiz-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy" : "npm run build&&gh-pages -d build"
   },
   "devDependencies": {
     "eslint": "^4.12.1",
@@ -23,6 +25,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.5.1"
+    "eslint-plugin-react": "^7.5.1",
+    "gh-pages": "^1.1.0"
   }
 }
