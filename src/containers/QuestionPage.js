@@ -3,11 +3,29 @@ import { connect } from "react-redux";
 import { newRound, answerQuestion } from "../actions/index";
 import { bindActionCreators } from "redux";
 
+import {
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
+} from "react-google-maps";
+
 function mapStateToProps(state) {
   return {
     categories: state
   };
 }
+
+const MapWithAMarker = withScriptjs(withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: props.lat, lng: props.lng }}
+  >
+    <Marker
+      position={{ lat: props.lat, lng: props.lng }}
+    />
+  </GoogleMap>
+));
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
@@ -99,6 +117,15 @@ class QuestionPage extends Component {
         {this.state.selectionMade && (
           <button onClick={this.handleNextRound}>Next Round</button>
         )}
+
+<MapWithAMarker
+  googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpMNeYmU0cjRMAcOgeKvTy547npsj4Tj0&v=3.exp&libraries=geometry,drawing,places"
+  loadingElement={<div style={{ height: `100%` }} />}
+  containerElement={<div style={{ height: `400px`, width: `400px` }} />}
+  mapElement={<div style={{ height: `100%` }}
+  lat={51.5285582}
+  lng={-0.2416802} />}
+/>
       </div>
     );
   }
