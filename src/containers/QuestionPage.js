@@ -84,15 +84,13 @@ class QuestionPage extends Component {
               onClick={() => this.handleAnswerSelection(index)}
               key={index}
               className={
-                this.state.selectionMade &&
-                index === this.state.answerIndex &&
-                index === this.props.categories.quizApp.currentRoundAnswer
+                this.state.selectionMade && index === this.props.categories.quizApp.currentRoundAnswer
                   ? "green-bg"
                   : this.state.selectionMade &&
                     index === this.state.answerIndex &&
                     index !== this.props.categories.quizApp.currentRoundAnswer
                     ? "red-bg"
-                    : ""
+                    : this.state.selectionMade && index !== this.state.answerIndex? "no-hover" : ""
               }
             >
               {item[0][1]}

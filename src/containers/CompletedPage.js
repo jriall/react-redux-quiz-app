@@ -15,7 +15,7 @@ class CompletedPage extends Component {
   render() {
     console.log(this.props.categories.quizApp.userScore)
     return (
-      <div>
+      <div className="completed-page">
         <h1>You Completed The Quiz</h1>
         <h2>You scored {this.props.categories.quizApp.userScore} out of 10!</h2>
         <button>Play Again</button>

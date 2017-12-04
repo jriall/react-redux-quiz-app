@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { startQuiz } from "../actions/index";
 import { bindActionCreators } from "redux";
 
+import cityImage from "../assets/images/city-illustration.png";
+
 function mapStateToProps(state) {
   return {
     categories: state
@@ -35,7 +37,8 @@ class StartPage extends Component {
         <h2>
           Test your knowledge of capital cities with this interactive quiz!
         </h2>
-        <button onClick={this.handleStartQuiz}>START QUIZ</button>
+        <img src={cityImage} alt="city" />
+        <button onClick={this.handleStartQuiz} className="start-button">START QUIZ</button>
       </div>
     );
   }
