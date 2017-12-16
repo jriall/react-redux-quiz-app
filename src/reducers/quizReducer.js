@@ -1,5 +1,5 @@
 import testData from "../assets/testdata";
-import { START_QUIZ, NEW_ROUND, ANSWER_QUESTION } from "../actions/types";
+import { START_QUIZ, NEW_ROUND, ANSWER_QUESTION, NEW_QUIZ } from "../actions/types";
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max + 1 - min) + min);
@@ -45,6 +45,10 @@ function quizReducer(state = testData, action) {
       newRound.currentRound++;
       if (action.payload) newRound.userScore++;
       return newRound;
+    case NEW_QUIZ:
+      let newQuizData = testData;
+      newQuizData.currentRoundQuestions = [];
+      return newQuizData;
     default:
       return state;
   }
