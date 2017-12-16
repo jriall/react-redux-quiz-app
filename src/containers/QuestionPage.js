@@ -80,16 +80,16 @@ class QuestionPage extends Component {
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${(this.props.categories.quizApp.currentRound*10)-10}%` }}/>
         </div>
-        <h2>{this.props.categories.quizApp.questionsAndAnswersReversed?`
+        <h2>{!this.props.categories.quizApp.questionsAndAnswersReversed?`
           Which country is
           ${
             this.props.categories.quizApp.currentRoundQuestions[
               this.props.categories.quizApp.currentRoundAnswer
-            ][0][0]
+            ][0][1]
           }
           the capital of?`:`What is the capital city of ${this.props.categories.quizApp.currentRoundQuestions[
               this.props.categories.quizApp.currentRoundAnswer
-            ][0][1]}?`}
+            ][0][0]}?`}
         </h2>
         <h3>Select the answer from the list below:</h3>
         {this.props.categories.quizApp.currentRoundQuestions.map(
