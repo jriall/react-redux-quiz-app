@@ -1,10 +1,11 @@
-import axios from "axios";
 
 import { START_QUIZ } from "./types";
 import { NEW_ROUND } from "./types";
 import { ANSWER_QUESTION } from "./types";
 import { NEW_QUIZ } from "./types";
-import { LOAD_DATA } from "./types";
+import { FETCH_REQUEST } from "./types";
+import { FETCH_SUCCESS } from "./types";
+import { FETCH_ERROR } from "./types";
 
 export function startQuiz(data) {
   return {
@@ -34,12 +35,43 @@ export function newQuiz(data) {
   };
 }
 
-export function loadData() {
-  const request = axios
-    .get("https://quiz-app-bae2b.firebaseio.com/unusedQuestions.json")
-    .catch(err => console.log(`ERROR GETTING QUESTION: ${err}`));
+function fetchDataRequest(){
   return {
-    type: LOAD_DATA,
-    payload: request
-  };
+    type: FETCH_REQUEST
+  }
 }
+
+function fetchDataSuccess(payload) {
+  return {
+    type: FETCH_SUCCESS,
+    payload
+  }
+}
+
+function fetchDataError() {
+  return {
+    type: FETCH_ERROR
+  }
+}
+
+export function fetchDataWithRedux() {
+  return (dispatch) => {
+    dispatch(fetchDataRequest());
+    return fetchData().then(([response, json]) =>{
+      if(response.status === 200){
+        dispatch(fetchDataSuccess(json))
+      }
+      else{
+        dispatch(fetchDataError())
+      }
+    })
+  }
+}
+
+function fetchData() {
+  const URL = "https://quiz-app-bae2b.firebaseio.com/data.json";
+  return fetch(URL, { method: 'GET'})
+     .then( response => Promise.all([response, response.json()]));
+}
+
+//https://quiz-app-bae2b.firebaseio.com/data.json

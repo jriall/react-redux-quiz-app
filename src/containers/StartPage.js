@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { startQuiz, loadData } from "../actions/index";
+import { startQuiz } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 import cityImage from "../assets/images/city-illustration.png";
@@ -15,7 +15,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
       startQuiz: startQuiz,
-      loadData: loadData
     },
     dispatch
   );
@@ -25,10 +24,6 @@ class StartPage extends Component {
   constructor(props) {
     super(props);
     this.handleStartQuiz = this.handleStartQuiz.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.loadData();
   }
 
   handleStartQuiz(type) {

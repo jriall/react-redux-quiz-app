@@ -1,11 +1,11 @@
-import testData from "../assets/testdata";
-import { START_QUIZ, NEW_ROUND, ANSWER_QUESTION, NEW_QUIZ, LOAD_DATA } from "../actions/types";
+import defaults from "../assets/defaults";
+import { START_QUIZ, NEW_ROUND, ANSWER_QUESTION, NEW_QUIZ, FETCH_REQUEST, FETCH_SUCCESS } from "../actions/types";
 
 function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max + 1 - min) + min);
 }
 
-function quizReducer(state = testData, action) {
+function quizReducer(state = defaults, action) {
   switch (action.type) {
     case START_QUIZ:
       let newQuiz = Object.assign({}, state);
@@ -46,12 +46,19 @@ function quizReducer(state = testData, action) {
       if (action.payload) newRound.userScore++;
       return newRound;
     case NEW_QUIZ:
-      let newQuizData = testData;
+      let newQuizData = Object.assign({}, state);
       newQuizData.currentRoundQuestions = [];
+      newQuizData.currentRoundAnswer = -1;
+      newQuizData.currentRound = 0;
+      newQuizData.userScore = 0;
       return newQuizData;
-    case LOAD_DATA:
-      console.log(action.payload)
+    case FETCH_REQUEST:
       return state;
+    case FETCH_SUCCESS:
+      let newFetch = Object.assign({}, state);
+      newFetch = action.payload;
+      newFetch.currentRoundQuestions = [];
+      return newFetch;
     default:
       return state;
   }
