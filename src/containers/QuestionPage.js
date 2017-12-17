@@ -75,8 +75,8 @@ class QuestionPage extends Component {
 
     return (
       <div>
-        <h2>Current Score: {this.props.categories.quizApp.userScore}/10</h2>
-        <h2>Round {this.props.categories.quizApp.currentRound}</h2>
+        <h2 className="topline">Current Score: {this.props.categories.quizApp.userScore}/10</h2>
+        <h2 className="topline">Round {this.props.categories.quizApp.currentRound}</h2>
         <div className="progress-bar-container">
           <div className="progress-bar" style={{ width: `${(this.props.categories.quizApp.currentRound*10)-10}%` }}/>
         </div>
@@ -131,17 +131,11 @@ class QuestionPage extends Component {
           )}
         {this.state.selectionMade && (
           <div className="answer-selected-div">
-            <button
-              onClick={this.handleNextRound}
-              className="next-round-button"
-            >
-              {this.props.categories.quizApp.currentRound===10?"Get Your Final Score!":"Next Round"}
-            </button>
             <MapWithAMarker
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpMNeYmU0cjRMAcOgeKvTy547npsj4Tj0&v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `70%`, margin: `0 auto` }} />}
               containerElement={
-                <div style={{ height: `400px`, width: `80%`, margin: `0 auto` }} />
+                <div className="google-map" style={{margin: `0 auto` }} />
               }
               mapElement={
                 <div
@@ -150,6 +144,12 @@ class QuestionPage extends Component {
                 />
               }
             />
+            <button
+              onClick={this.handleNextRound}
+              className="next-round-button"
+            >
+              {this.props.categories.quizApp.currentRound===10?"Get Your Final Score!":"Next Round"}
+            </button>
           </div>
         )}
       </div>

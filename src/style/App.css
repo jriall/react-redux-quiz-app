@@ -8,17 +8,21 @@ body {
 }
 
 h1 {
-  margin-top: 10vh;
+/*  margin-top: 10vh;*/
   font-size: 80px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
 }
 
 h4 {
-  font-size: 24px;
-  padding: 20px;
+  font-size: 20px;
+  padding: 10px;
   max-width: 600px;
   margin: 0 auto;
   border: 1px solid white;
@@ -65,6 +69,8 @@ button:hover {
   padding: 10px 20px 10px 20px;
   border-radius: 20px;
   border: 2px solid white;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .red-bg {
@@ -87,9 +93,15 @@ button:hover {
   background-color: #F19B2C;
 }
 
+.google-map {
+  height: 300px;
+  width: 100%;
+  max-width: 650px;
+}
 .google-map-container {
   margin-top: 30px;
   margin-bottom: 30px;
+  height: 300px;
 }
 
 .progress-bar-container {
@@ -116,3 +128,54 @@ button:hover {
 .cover-image {
   width: 70%;
 }
+
+@media (max-width: 599px) {
+  body {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  h4 {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .start-button, .reset-button {
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-size: 20px;
+    padding: 20px 20px 20px 20px;
+    width: 300px;
+    border: 2px solid white;
+  }
+  .next-round-button {
+    font-size: 16px;
+  }
+  .google-map {
+    height: 240px;
+    width: 100%;
+  }
+  .google-map-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .progress-bar, .progress-bar-container {
+    width: 90%;
+  }
+  .topline {
+    display: inline-block;
+    padding-right: 20px;
+  }
+  .cover-image {
+    width: 90%;
+}
+
+  }

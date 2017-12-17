@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { startQuiz } from "../actions/index";
+import { startQuiz, loadData } from "../actions/index";
 import { bindActionCreators } from "redux";
 
 import cityImage from "../assets/images/city-illustration.png";
@@ -14,7 +14,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
     {
-      startQuiz: startQuiz
+      startQuiz: startQuiz,
+      loadData: loadData
     },
     dispatch
   );
@@ -24,6 +25,10 @@ class StartPage extends Component {
   constructor(props) {
     super(props);
     this.handleStartQuiz = this.handleStartQuiz.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.loadData();
   }
 
   handleStartQuiz(type) {
@@ -37,9 +42,19 @@ class StartPage extends Component {
         <h2>
           Test your knowledge of capital cities with this interactive quiz!
         </h2>
-        <img src={cityImage} alt="city" className="cover-image"/>
-        <button onClick={()=>this.handleStartQuiz("countries")} className="start-button">GUESS THE COUNTRIES!</button>
-        <button onClick={()=>this.handleStartQuiz("cities")} className="start-button">GUESS THE CITIES!</button>
+        <img src={cityImage} alt="city" className="cover-image" />
+        <button
+          onClick={() => this.handleStartQuiz("countries")}
+          className="start-button"
+        >
+          GUESS THE COUNTRIES!
+        </button>
+        <button
+          onClick={() => this.handleStartQuiz("cities")}
+          className="start-button"
+        >
+          GUESS THE CITIES!
+        </button>
       </div>
     );
   }
