@@ -47,13 +47,13 @@ class StartPage extends Component {
           onClick={() => this.handleStartQuiz("countries")}
           className="start-button"
         >
-          GUESS THE COUNTRIES!
+          GUESS THE CITIES!
         </button>
         <button
           onClick={() => this.handleStartQuiz("cities")}
           className="start-button"
         >
-          GUESS THE CITIES!
+          GUESS THE COUNTRIES!
         </button>
       </div>
     );
