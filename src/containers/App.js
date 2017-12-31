@@ -28,7 +28,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     if (this.props.categories.quizApp.currentRound === -1) {
       this.props.fetchDataWithRedux();
     }
